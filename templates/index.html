@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo serif">T</span><span class="name sans-serif light-text">TextStats</span>
+      <button class="calculate sans-serif">Calculate</button>
+      <button class="back">&lang;</button>
+    </div>
+    <div class="content">
+      <textarea class="editor light-text serif" placeholder="Enter some text or a Medium url..."></textarea>
+      <div class="stats serif light-text"></div>
+    </div>
+    <!-- SCRIPTS! -->
+    <script class="stats-table-template" type="text/html">
+      {% raw %}
+      <h1>Stats for <br>&ldquo;<span class="first-sentence">{{ firstSentence }}</span>&rdquo;</h1>
+      <table class="stats-table" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="label">Word Count</td>
+            <td class="value">{{ wordCount }}</td>
+          </tr>
+          <tr>
+            <td class="label">Sentence Count</td>
+            <td class="value">{{ sentenceCount }}</td>
+          </tr>
+          <tr>
+            <td class="label">Paragraph Count</td>
+            <td class="value">{{ paragraphCount }}</td>
+          </tr>
+          <tr>
+            <td class="label">Most Common Bigram</td>
+            <td class="value">
+              {{ #bigram }}
+                &ldquo;{{ words }}&rdquo; ({{ count }})
+              {{ /bigram }}
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Most Common Trigram</td>
+            <td class="value">
+              {{ #trigram }}
+                &ldquo;{{ words }}&rdquo; ({{ count }})
+              {{ /trigram }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% endraw %}
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='mustache.js') }}"></script>
+    <script src="{{ url_for('static', filename='chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

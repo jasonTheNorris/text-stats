@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Lucida Grande';
+  font-weight: bold;
+}
+
+.serif {
+  font-family: 'Georgia';
+}
+
+.sans-serif {
+  font-family: 'Verdana';
+}
+
+.light-text {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 15px 20px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header .logo,
+.header .name,
+.header .calculate {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header .logo {
+  font-size: 31px;
+  font-weight: bold;
+  padding-right: 15px;
+}
+
+.header .name {
+  border-left: 1px solid lightgrey;
+  font-size: 14px;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 15px;
+}
+
+.header button {
+  background: none;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  display: none;
+  float: right;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0;
+  outline: none;
+}
+
+.header button.calculate[disabled="disabled"],
+.header button.calculate:hover[disabled="disabled"],
+.header button.calculate:active[disabled="disabled"],
+.header button.back[disabled="disabled"],
+.header button.back:hover[disabled="disabled"],
+.header button.back:active[disabled="disabled"] {
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+
+.header button.calculate {
+  border-color: #a9d8b2;
+  border-radius: 20px;
+  color: #57ad68;
+  padding: 10px;
+}
+
+.header button.calculate:hover,
+.header button.calculate:active {
+  border-color: #57ad68;
+}
+
+.header button.back {
+  border-radius: 999px;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.4);
+  height: 38px;
+  width: 38px;
+}
+
+.header button.back:hover,
+.header button.back:active {
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  height: 100%;  
+  margin: 0 15%;
+  width: 70%;
+}
+
+.content .editor {
+  border: 0;
+  font-size: 18px;
+  height: 100%;
+  line-height: 1.5;
+  outline: none;
+  padding: 0;
+  resize: none;
+  width: 100%;
+}
+
+.content .stats {
+  display: none;
+}
+
+.content .stats h1 {
+  font-size: 24px;
+}
+
+.content .stats h1 .first-sentence {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 94%;
+}
+
+.content .stats .stats-table {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content .stats .stats-table td {
+  padding: 10px 15px;
+}
+
+.content .stats .stats-table tr:first-child td {
+  padding-top: 15px;
+}
+
+.content .stats .stats-table tr:last-child td {
+  padding-bottom: 15px;
+}
+
+.content .stats .stats-table .label {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
