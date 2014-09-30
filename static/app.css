@@ -131,7 +131,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 94%;
+  width: 95%;
 }
 
 .content .stats .stats-table {
@@ -158,6 +158,16 @@ body {
   vertical-align: top;
 }
 
-.content .stats .stats-table .word-length-table th {
+.content .stats .stats-table .word-length-table {
+  width: 100%;
+}
+
+.content .stats .stats-table .word-length-table tr th {
   color: rgba(0, 0, 0, 0.2);
+  font-weight: normal;
+  text-align: left;
+}
+
+.content .stats .stats-table .word-length-table tr td {
+  padding: 4px 0;
 }
