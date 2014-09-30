@@ -33,8 +33,7 @@ body {
 }
 
 .header .logo,
-.header .name,
-.header .calculate {
+.header .name {
   display: inline-block;
   vertical-align: middle;
 }
