@@ -32,7 +32,4 @@ def _get_text_from_medium_url(url):
   return '\n'.join([node.text_content() for node in text_nodes])
 
 if __name__ == "__main__":
-  port = 5000
-  if len(sys.argv) > 1:
-    port = int(sys.argv[1])
-  app.run(port=port)
+  app.run()
