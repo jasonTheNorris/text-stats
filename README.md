@@ -1,6 +1,6 @@
 # test-stats
 
-Calculate statistics on some text or a Medium url.
+Calculate statistics on text or a Medium url.
 
 ## Quick start
 ```
