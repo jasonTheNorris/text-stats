@@ -19,41 +19,52 @@
       {% raw %}
       <h1>Stats for <br>&ldquo;<span class="first-sentence">{{ firstSentence }}</span>&rdquo;</h1>
       <table class="stats-table" cellpadding="0" cellspacing="0">
-        <tbody>
-          <tr>
-            <td class="label">Word Count</td>
-            <td class="value">{{ wordCount }}</td>
-          </tr>
-          <tr>
-            <td class="label">Sentence Count</td>
-            <td class="value">{{ sentenceCount }}</td>
-          </tr>
-          <tr>
-            <td class="label">Paragraph Count</td>
-            <td class="value">{{ paragraphCount }}</td>
-          </tr>
-          <tr>
-            <td class="label">Most Common Bigram</td>
-            <td class="value">
-              {{ #bigram }}
-                &ldquo;{{ words }}&rdquo; ({{ count }})
-              {{ /bigram }}
-            </td>
-          </tr>
-          <tr>
-            <td class="label">Most Common Trigram</td>
-            <td class="value">
-              {{ #trigram }}
-                &ldquo;{{ words }}&rdquo; ({{ count }})
-              {{ /trigram }}
-            </td>
-          </tr>
-        </tbody>
+        <tr>
+          <td class="label">Word Count</td>
+          <td class="value">{{ wordCount }}</td>
+        </tr>
+        <tr>
+          <td class="label">Sentence Count</td>
+          <td class="value">{{ sentenceCount }}</td>
+        </tr>
+        <tr>
+          <td class="label">Paragraph Count</td>
+          <td class="value">{{ paragraphCount }}</td>
+        </tr>
+        <tr>
+          <td class="label">Most Common Bigram</td>
+          <td class="value">
+            &ldquo;{{ bigram.words }}&rdquo; ({{ bigram.count }})
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Most Common Trigram</td>
+          <td class="value">
+            &ldquo;{{ trigram.words }}&rdquo; ({{ trigram.count }})
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Word Length Distribution</td>
+          <td class="value">
+            <table class="word-length-table">
+              <tr>
+                <th>Length</th>
+                <th>Count</th>
+              </tr>
+              {{#each wordLengthCounts}}
+                <tr>
+                  <td>{{@key}}</td>
+                  <td>{{this}}</td>
+                </tr>
+              {{/each}}
+            <table>
+          </td>
+        </tr>
       </table>
       {% endraw %}
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='mustache.js') }}"></script>
+    <script src="{{ url_for('static', filename='handlebars.js') }}"></script>
     <script src="{{ url_for('static', filename='chart.js') }}"></script>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
   </body>

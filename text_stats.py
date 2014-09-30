@@ -62,9 +62,8 @@ class TextStats():
     length_counts = defaultdict(int)
     for word in words:
       length_counts[len(word)] += 1
-    return {
-      'lengths': map(str, length_counts.keys()),
-      'counts': length_counts.values()
-    }
-
-
+    # return {
+    #   'lengths': map(str, length_counts.keys()),
+    #   'counts': length_counts.values()
+    # }
+    return length_counts

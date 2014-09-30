@@ -155,4 +155,9 @@ body {
 
 .content .stats .stats-table .label {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  vertical-align: top;
+}
+
+.content .stats .stats-table .word-length-table th {
+  color: rgba(0, 0, 0, 0.2);
 }

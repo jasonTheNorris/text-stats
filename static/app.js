@@ -7,8 +7,7 @@ $(function() {
     this.$backButton = $('.header .back');
     this.$stats = $('.stats')
 
-    this.statsTableTemplate = $('.stats-table-template').html();
-    Mustache.parse(self.statsTableTemplate);
+    this.statsTableTemplate = Handlebars.compile($('.stats-table-template').html());
 
     this.$editor.focus().on('keyup', function() {
       if (self.$editor.val()) {
@@ -44,7 +43,7 @@ $(function() {
 
   TextStats.prototype.renderStats = function(data) {
     var self = this;
-    var statsTableHtml = Mustache.render(this.statsTableTemplate, data);
+    var statsTableHtml = self.statsTableTemplate(data);
     this.$stats.html(statsTableHtml).fadeIn();
   };
 
