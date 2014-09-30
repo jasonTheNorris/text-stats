@@ -9,3 +9,6 @@ cd text-stats
 pip install -r requirements.txt
 gunicorn -b 0.0.0.0:5000 app:app
 ```
+
+## Check it out
+It's alive at [http://text-stats.herokuapp.com/](http://text-stats.herokuapp.com/)!

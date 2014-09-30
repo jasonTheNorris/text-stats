@@ -7,7 +7,7 @@ from flask import Flask, jsonify, render_template, request
 from lxml import html
 from text_stats import TextStats
 
-MEDIUM_URL_RE = re.compile(r"(http(s)?://)?(www\.)?medium.com/")
+RE_MEDIUM_URL = re.compile(r"(http(s)?://)?(www\.)?medium.com/")
 
 app = Flask(__name__)
 
@@ -18,9 +18,22 @@ def index():
 @app.route("/api/calculate", methods=['POST'])
 def calculate():
   text = request.form['text']
-  if MEDIUM_URL_RE.match(text):
+  if RE_MEDIUM_URL.match(text):
     text = _get_text_from_medium_url(text)
-  stats = TextStats(text).calculate()
+  ts = TextStats(text)
+  stats = {
+    'wordCount':        len(ts.get_words()),
+    'sentenceCount':    len(ts.get_sentences()),
+    'firstSentence':    ts.get_sentences()[0],
+    'paragraphCount':   ts.get_paragraph_count(),
+    'wordLengthCounts': ts.get_word_length_counts(),
+  }
+  most_common_bigram = ts.get_most_common_ngram(2)
+  if (most_common_bigram):
+    stats['bigram'] = most_common_bigram
+  most_common_trigram = ts.get_most_common_ngram(3)
+  if (most_common_trigram):
+    stats['trigram'] = most_common_trigram
   return jsonify(**stats)
 
 def _get_text_from_medium_url(url):
@@ -32,4 +45,4 @@ def _get_text_from_medium_url(url):
   return '\n'.join([node.text_content() for node in text_nodes])
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)
