@@ -45,4 +45,4 @@ def _get_text_from_medium_url(url):
   return '\n'.join([node.text_content() for node in text_nodes])
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run()
