@@ -9,7 +9,7 @@ class TextStats():
   RE = {
     'words':        re.compile(ur"[\w'\u2019]+"),
     'sentence_end': re.compile(r"[\.!?;][\"]?\s+"),
-    'paragraph':    re.compile(r".+\n|\n.+$"),
+    'paragraph':    re.compile(r".+(?=\n)|(?<=\n).+$"),
   }
 
   def __init__(self, text):
